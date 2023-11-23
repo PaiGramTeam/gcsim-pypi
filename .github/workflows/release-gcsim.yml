@@ -52,8 +52,9 @@ jobs:
     # Build your Go project
     - name: Build Go Project
       run: |
-        cd gcsim/cmd/gcsim
+        pushd gcsim/cmd/gcsim
         GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o gcsim
+        popd
 
     # Package the binary in a Python package structure
     - name: Package Binary
