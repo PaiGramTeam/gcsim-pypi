@@ -9,7 +9,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     outputs:
-      tag: ${{ steps.gcsim-latest-tag.outputs.tag }}
+      tag: ${{ steps.gcsim-latest-tag.outputs.release }}
       version-exists: ${{ steps.check-pypi-version.outputs.exists }}
     steps:
     # Fetch the latest release tag from gcsim
