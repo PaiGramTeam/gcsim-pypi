@@ -12,10 +12,9 @@ jobs:
       tag: ${{ steps.gcsim-latest-tag.outputs.tag }}
       version-exists: ${{ steps.check-pypi-version.outputs.exists }}
     steps:
-    # Fetch the latest release tag from the other repository
-    - name: Get Latest Release Tag
-      id: gcsim-latest-tag
-      uses: WyriHaximus/github-action-get-previous-tag@v1
+    # Fetch the latest release tag from gcsim
+    - id: gcsim-latest-tag
+      uses: pozetroninc/github-action-get-latest-release@master
       with:
         repository: 'genshinsim/gcsim'
 
