@@ -78,6 +78,7 @@ jobs:
         name = 'gcsim-pypi'
         version = '${{ needs.check.outputs.tag }}'
         description = 'gcsim binary for PyPI'
+        readme = 'README.md'
         authors = ['Lei Shi <me@leishi.io>']
         packages = [{include = 'gcsim_pypi'}]
 
