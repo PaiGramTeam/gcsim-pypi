@@ -1,0 +1,95 @@
+name: Build gcsim and Release to PyPI
+
+on:
+  schedule:
+    - cron: "0 0 0 0 6"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.gcsim-latest-tag.outputs.tag }}
+      version-exists: ${{ steps.check-pypi-version.outputs.exists }}
+    steps:
+    # Fetch the latest release tag from the other repository
+    - name: Get Latest Release Tag
+      id: gcsim-latest-tag
+      uses: WyriHaximus/github-action-get-previous-tag@v1
+      with:
+        repository: 'genshinsim/gcsim'
+
+    # Check if version already exists on PyPI
+    - name: Check if Version Exists on PyPI
+      id: check-pypi-version
+      run: |
+        VERSION_EXISTS=$(curl -s https://pypi.org/pypi/gcsim_pypi/json | jq -r '.releases | has("${{ steps.get-latest-tag.outputs.tag }}")')
+        echo "::set-output name=exists::$VERSION_EXISTS"
+
+  build-and-release:
+    runs-on: ubuntu-latest
+    needs: check
+    if: needs.check.outputs.version-exists == 'false'
+
+    steps:
+    # Checkout your repository
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+
+    # Clone the other repository
+    - name: Checkout gcsim
+      uses: actions/checkout@v2
+      with:
+        repository: 'genshinsim/gcsim'
+        ref: ${{ needs.check.outputs.tag }}
+        path: 'gcsim'
+
+    # Set up Go environment
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: "^1.19.3"
+
+    # Build your Go project
+    - name: Build Go Project
+      run: |
+        cd gcsim/cmd/gcsim
+        GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o gcsim
+
+    # Set up Python and dependencies for PyPI upload
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '^3.10'
+
+    - name: Install Poetry
+      run: pip install poetry
+
+    - name: Create pyproject.toml
+      run: |
+        cat << EOF > gcsim_pypi/pyproject.toml
+        [tool.poetry]
+        name = 'gcsim-pypi'
+        version = '${{ needs.check.outputs.tag }}'
+        description = 'gcsim binary for PyPI'
+        authors = ['Lei Shi <me@leishi.io>']
+        packages = [{include = 'gcsim_pypi'}]
+
+        [tool.poetry.dependencies]
+        python = '^3.6'
+
+        [build-system]
+        requires = ['poetry-core']
+        build-backend = 'poetry.core.masonry.api'
+        EOF
+
+    # Package the binary in a Python package structure
+    - name: Package Binary
+      run: |
+        mkdir -p gcsim_pypi/bin
+        cp gcsim/cmd/gcsim/gcsim gcsim_pypi/bin/
+        cd gcsim_pypi
+        poetry build
+
+    # Upload to PyPI
+    - name: Publish to PyPI
+      run: poetry publish --repository pypi --username ${{ secrets.PYPI_USERNAME }} --password ${{ secrets.PYPI_PASSWORD }} --build
