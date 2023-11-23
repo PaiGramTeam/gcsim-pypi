@@ -72,7 +72,7 @@ jobs:
 
     - name: Create pyproject.toml
       run: |
-        cat << EOF > gcsim_pypi/pyproject.toml
+        cat << EOF > pyproject.toml
         [tool.poetry]
         name = 'gcsim-pypi'
         version = '${{ needs.check.outputs.tag }}'
