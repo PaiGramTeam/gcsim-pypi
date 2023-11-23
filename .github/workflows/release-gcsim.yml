@@ -88,6 +88,9 @@ jobs:
         build-backend = 'poetry.core.masonry.api'
         EOF
 
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
+
     # Upload to PyPI
     - name: Build and publish to pypi
       uses: JRubics/poetry-publish@v1.17
