@@ -3,6 +3,7 @@ name: Build gcsim and Release to PyPI
 on:
   schedule:
     - cron: "0 0 * * 0"
+  workflow_dispatch:
 
 jobs:
   check:
@@ -55,6 +56,12 @@ jobs:
         cd gcsim/cmd/gcsim
         GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o gcsim
 
+    # Package the binary in a Python package structure
+    - name: Package Binary
+      run: |
+        mkdir -p gcsim_pypi/bin
+        cp gcsim/cmd/gcsim/gcsim gcsim_pypi/bin/
+
     # Set up Python and dependencies for PyPI upload
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -82,14 +89,8 @@ jobs:
         build-backend = 'poetry.core.masonry.api'
         EOF
 
-    # Package the binary in a Python package structure
-    - name: Package Binary
-      run: |
-        mkdir -p gcsim_pypi/bin
-        cp gcsim/cmd/gcsim/gcsim gcsim_pypi/bin/
-        cd gcsim_pypi
-        poetry build
-
     # Upload to PyPI
-    - name: Publish to PyPI
-      run: poetry publish --repository pypi --username ${{ secrets.PYPI_USERNAME }} --password ${{ secrets.PYPI_PASSWORD }} --build
+    - name: Build and publish to pypi
+      uses: JRubics/poetry-publish@v1.17
+      with:
+        pypi_token: ${{ secrets.PYPI_TOKEN }}
