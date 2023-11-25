@@ -80,6 +80,9 @@ jobs:
     - name: Add git safe directory
       run: git config --global --add safe.directory /github/workspace
 
+    - name: Update version
+      run: sed -i 's/^version = .*/version = "'"${{ needs.check.outputs.version }}"'"/' pyproject.toml
+
     # Upload to PyPI
     - name: Build and publish to pypi
       uses: JRubics/poetry-publish@v1.17
