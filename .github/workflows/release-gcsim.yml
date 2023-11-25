@@ -26,7 +26,7 @@ jobs:
       id: check-pypi-version
       run: |
         VERSION_EXISTS=$(curl -s https://pypi.org/pypi/gcsim_pypi/json | jq -r '.releases | has("${{ github.event.release.tag_name || steps.get-latest-tag.outputs.tag }}")')
-        echo "{exists}={$VERSION_EXISTS}" >> $GITHUB_OUTPUT
+        echo "exists=$VERSION_EXISTS" >> $GITHUB_OUTPUT
 
   build-and-release:
     runs-on: ubuntu-latest
