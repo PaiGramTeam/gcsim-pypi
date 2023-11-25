@@ -1,1 +1,1 @@
-gcsim binary build from [gcsim](https://github.com/genshinsim/gcsim)
+[gcsim](https://github.com/genshinsim/gcsim) binary for pypi

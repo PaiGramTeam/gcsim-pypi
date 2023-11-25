@@ -3,13 +3,16 @@ name: Build gcsim and Release to PyPI
 on:
   schedule:
     - cron: "0 0 * * 0"
+  release:
+    types: [published]
   workflow_dispatch:
 
 jobs:
   check:
     runs-on: ubuntu-latest
     outputs:
-      tag: ${{ steps.gcsim-latest-tag.outputs.release }}
+      version: ${{ github.event.release.tag_name || steps.get-latest-tag.outputs.tag }}
+      gcsim-version: ${{ steps.gcsim-latest-tag.outputs.release }}
       version-exists: ${{ steps.check-pypi-version.outputs.exists }}
     steps:
     # Fetch the latest release tag from gcsim
@@ -22,8 +25,8 @@ jobs:
     - name: Check if Version Exists on PyPI
       id: check-pypi-version
       run: |
-        VERSION_EXISTS=$(curl -s https://pypi.org/pypi/gcsim_pypi/json | jq -r '.releases | has("${{ steps.get-latest-tag.outputs.tag }}")')
-        echo "::set-output name=exists::$VERSION_EXISTS"
+        VERSION_EXISTS=$(curl -s https://pypi.org/pypi/gcsim_pypi/json | jq -r '.releases | has("${{ github.event.release.tag_name || steps.get-latest-tag.outputs.tag }}")')
+        echo "{exists}={$VERSION_EXISTS}" >> $GITHUB_OUTPUT
 
   build-and-release:
     runs-on: ubuntu-latest
@@ -33,14 +36,14 @@ jobs:
     steps:
     # Checkout your repository
     - name: Checkout Repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     # Clone the other repository
     - name: Checkout gcsim
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         repository: 'genshinsim/gcsim'
-        ref: ${{ needs.check.outputs.tag }}
+        ref: ${{ needs.check.outputs.gcsim-version }}
         path: 'gcsim'
 
     # Set up Go environment
@@ -71,24 +74,8 @@ jobs:
     - name: Install Poetry
       run: pip install poetry
 
-    - name: Create pyproject.toml
-      run: |
-        cat << EOF > pyproject.toml
-        [tool.poetry]
-        name = 'gcsim-pypi'
-        version = '${{ needs.check.outputs.tag }}'
-        description = 'gcsim binary for PyPI'
-        readme = 'README.md'
-        authors = ['Lei Shi <me@leishi.io>']
-        packages = [{include = 'gcsim_pypi'}]
-
-        [tool.poetry.dependencies]
-        python = '^3.6'
-
-        [build-system]
-        requires = ['poetry-core']
-        build-backend = 'poetry.core.masonry.api'
-        EOF
+    - name: Generate available characters/artifacts/weapons
+      run: poetry run python gcsim_pypi/scripts.py
 
     - name: Add git safe directory
       run: git config --global --add safe.directory /github/workspace
@@ -96,5 +83,7 @@ jobs:
     # Upload to PyPI
     - name: Build and publish to pypi
       uses: JRubics/poetry-publish@v1.17
+      env:
+        POETRY_DYNAMIC_VERSIONING_BYPASS: ${{ needs.check.outputs.version }}
       with:
         pypi_token: ${{ secrets.PYPI_API_TOKEN }}

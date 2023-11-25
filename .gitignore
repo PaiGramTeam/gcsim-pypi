@@ -1,0 +1,4 @@
+dist/
+gcsim/
+gcsim_pypi/bin/*
+gcsim_pypi/*.json
