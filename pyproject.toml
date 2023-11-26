@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{include = "gcsim_pypi"}]
 include = [
     { path = "gcsim_pypi/bin/*", format = ["sdist", "wheel"] },
-    { path = "gcsim_pypi/*.json", format = ["sdist", "wheel"] }
+    { path = "gcsim_pypi/availability/*.json", format = ["sdist", "wheel"] }
 ]
 
 [tool.poetry.dependencies]

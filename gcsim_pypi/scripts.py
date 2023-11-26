@@ -1,49 +1,86 @@
 import json
 from pathlib import Path
 
-with open(Path(__file__).parent.joinpath("available_characters.json"), "w") as f:
+with open(
+    Path(__file__).parent.joinpath("availability").joinpath("characters.json"), "w"
+) as f:
     json.dump(
-        [
-            f.stem
-            for f in (
-                Path(__file__)
-                .parent.parent.joinpath("gcsim")
-                .joinpath("internal")
-                .joinpath("characters")
-            ).iterdir()
-            if f.is_dir()
-        ],
+        list(
+            set(
+                [
+                    next(
+                        filter(
+                            lambda line: line.startswith("key:"),
+                            f.read_text().split("\n"),
+                        ),
+                        f.parent.stem,
+                    )
+                    .split(" ")[-1]
+                    .strip('"')
+                    for f in (
+                        Path(__file__)
+                        .parent.parent.joinpath("gcsim")
+                        .joinpath("internal")
+                        .joinpath("characters")
+                    ).rglob("config.yml")
+                ]
+            )
+        ),
         f,
     )
 
-with open(Path(__file__).parent.joinpath("available_artifacts.json"), "w") as f:
+with open(
+    Path(__file__).parent.joinpath("availability").joinpath("artifacts.json"), "w"
+) as f:
     json.dump(
-        [
-            f.stem
-            for f in (
-                Path(__file__)
-                .parent.parent.joinpath("gcsim")
-                .joinpath("internal")
-                .joinpath("artifacts")
-            ).iterdir()
-            if f.is_dir()
-        ],
+        list(
+            set(
+                [
+                    next(
+                        filter(
+                            lambda line: line.startswith("key:"),
+                            f.read_text().split("\n"),
+                        ),
+                        f.parent.stem,
+                    )
+                    .split(" ")[-1]
+                    .strip('"')
+                    for f in (
+                        Path(__file__)
+                        .parent.parent.joinpath("gcsim")
+                        .joinpath("internal")
+                        .joinpath("artifacts")
+                    ).rglob("config.yml")
+                ]
+            )
+        ),
         f,
     )
 
-with open(Path(__file__).parent.joinpath("available_weapons.json"), "w") as f:
+with open(
+    Path(__file__).parent.joinpath("availability").joinpath("weapons.json"), "w"
+) as f:
     json.dump(
-        [
-            ff.stem
-            for f in (
-                Path(__file__)
-                .parent.parent.joinpath("gcsim")
-                .joinpath("internal")
-                .joinpath("weapons")
-            ).iterdir()
-            if f.is_dir()
-            and f.stem in ("sword", "claymore", "spear", "catalyst", "bow")
-            for ff in f.iterdir()
-        ],
+        list(
+            set(
+                [
+                    next(
+                        filter(
+                            lambda line: line.startswith("key:"),
+                            f.read_text().split("\n"),
+                        ),
+                        f.parent.stem,
+                    )
+                    .split(" ")[-1]
+                    .strip('"')
+                    for f in (
+                        Path(__file__)
+                        .parent.parent.joinpath("gcsim")
+                        .joinpath("internal")
+                        .joinpath("weapons")
+                    ).rglob("config.yml")
+                ]
+            )
+        ),
         f,
     )

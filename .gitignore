@@ -1,4 +1,5 @@
+.vscode/
 dist/
 gcsim/
 gcsim_pypi/bin/*
-gcsim_pypi/*.json
+gcsim_pypi/availability/*.json
