@@ -2,7 +2,11 @@ import json
 from pathlib import Path
 
 with open(
-    Path(__file__).parent.joinpath("availability").joinpath("characters.json"), "w"
+    Path(__file__)
+    .parent.joinpath("gcsim_pypi")
+    .joinpath("availability")
+    .joinpath("characters.json"),
+    "w",
 ) as f:
     json.dump(
         list(
@@ -19,7 +23,7 @@ with open(
                     .strip('"')
                     for f in (
                         Path(__file__)
-                        .parent.parent.joinpath("gcsim")
+                        .parent.joinpath("gcsim")
                         .joinpath("internal")
                         .joinpath("characters")
                     ).rglob("config.yml")
@@ -30,7 +34,11 @@ with open(
     )
 
 with open(
-    Path(__file__).parent.joinpath("availability").joinpath("artifacts.json"), "w"
+    Path(__file__)
+    .parent.joinpath("gcsim_pypi")
+    .joinpath("availability")
+    .joinpath("artifacts.json"),
+    "w",
 ) as f:
     json.dump(
         list(
@@ -47,7 +55,7 @@ with open(
                     .strip('"')
                     for f in (
                         Path(__file__)
-                        .parent.parent.joinpath("gcsim")
+                        .parent.joinpath("gcsim")
                         .joinpath("internal")
                         .joinpath("artifacts")
                     ).rglob("config.yml")
@@ -58,7 +66,11 @@ with open(
     )
 
 with open(
-    Path(__file__).parent.joinpath("availability").joinpath("weapons.json"), "w"
+    Path(__file__)
+    .parent.joinpath("gcsim_pypi")
+    .joinpath("availability")
+    .joinpath("weapons.json"),
+    "w",
 ) as f:
     json.dump(
         list(
@@ -75,7 +87,7 @@ with open(
                     .strip('"')
                     for f in (
                         Path(__file__)
-                        .parent.parent.joinpath("gcsim")
+                        .parent.joinpath("gcsim")
                         .joinpath("internal")
                         .joinpath("weapons")
                     ).rglob("config.yml")

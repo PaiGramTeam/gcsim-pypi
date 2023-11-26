@@ -74,9 +74,6 @@ jobs:
     - name: Install Poetry
       run: pip install poetry
 
-    - name: Generate available characters/artifacts/weapons
-      run: poetry run python gcsim_pypi/scripts.py
-
     - name: Add git safe directory
       run: git config --global --add safe.directory /github/workspace
 
