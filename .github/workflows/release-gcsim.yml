@@ -57,6 +57,7 @@ jobs:
       run: |
         pushd gcsim/cmd/gcsim
         GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o gcsim
+        GOOS=windows GOARCH=amd64 go build -o gcsim.exe
         popd
 
     # Package the binary in a Python package structure
@@ -64,6 +65,7 @@ jobs:
       run: |
         mkdir -p gcsim_pypi/bin
         cp gcsim/cmd/gcsim/gcsim gcsim_pypi/bin/
+        cp gcsim/cmd/gcsim/gcsim.exe gcsim_pypi/bin/
 
     # Set up Python and dependencies for PyPI upload
     - name: Set up Python
