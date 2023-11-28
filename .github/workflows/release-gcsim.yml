@@ -57,6 +57,9 @@ jobs:
       run: |
         pushd gcsim/cmd/gcsim
         GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o gcsim
+        GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -o gcsim.arm64
+        GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -o gcsim.darwin
+        GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 go build -o gcsim.darwin.arm64
         GOOS=windows GOARCH=amd64 go build -o gcsim.exe
         popd
 
@@ -65,7 +68,7 @@ jobs:
       run: |
         mkdir -p gcsim_pypi/bin
         cp gcsim/cmd/gcsim/gcsim gcsim_pypi/bin/
-        cp gcsim/cmd/gcsim/gcsim.exe gcsim_pypi/bin/
+        cp gcsim/cmd/gcsim/gcsim* gcsim_pypi/bin/
 
     # Set up Python and dependencies for PyPI upload
     - name: Set up Python
