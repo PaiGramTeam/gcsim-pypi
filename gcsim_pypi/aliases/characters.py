@@ -79,6 +79,9 @@ CHARACTER_ALIASES = {
   "venti": "venti",
   "xiangling": "xiangling",
   "xl": "xiangling",
+  "xianyun": "xianyun",
+  "liuyun": "xianyun",
+  "cloudretainer": "xianyun",
   "xiao": "xiao",
   "xingqiu": "xingqiu",
   "xq": "xingqiu",
@@ -141,4 +144,6 @@ CHARACTER_ALIASES = {
   "wrio": "wriothesley",
   "chevreuse": "chevreuse",
   "chev": "chevreuse",
+  "gaming": "gaming",
+  "chiori": "chiori",
 }

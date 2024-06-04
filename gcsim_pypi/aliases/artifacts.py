@@ -36,6 +36,8 @@ ARTIFACT_ALIASES = {
   "flowerofparadiselost": "flowerofparadiselost",
   "paradiselost": "flowerofparadiselost",
   "fopl": "flowerofparadiselost",
+  "fragmentofharmonicwhimsy": "fragmentofharmonicwhimsy",
+  "fohw": "fragmentofharmonicwhimsy",
   "gambler": "gambler",
   "gladiatorsfinale": "gladiatorsfinale",
   "glad": "gladiatorsfinale",
