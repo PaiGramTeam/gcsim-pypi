@@ -106,6 +106,8 @@ ARTIFACT_ALIASES = {
   "ts": "thundersoother",
   "tinymiracle": "tinymiracle",
   "travelingdoctor": "travelingdoctor",
+  "unfinishedreverie": "unfinishedreverie",
+  "ur": "unfinishedreverie",
   "vermillionhereafter": "vermillionhereafter",
   "vermillion": "vermillionhereafter",
   "vh": "vermillionhereafter",

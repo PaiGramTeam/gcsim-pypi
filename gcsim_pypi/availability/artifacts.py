@@ -102,6 +102,8 @@ AVAILABLE_ARTIFACTS = {
   "totm",
   "travelingdoctor",
   "ts",
+  "unfinishedreverie",
+  "ur",
   "vermillion",
   "vermillionhereafter",
   "vg",

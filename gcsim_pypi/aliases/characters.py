@@ -23,6 +23,8 @@ CHARACTER_ALIASES = {
   "albedo": "albedo",
   "aloy": "aloy",
   "amber": "amber",
+  "arlecchino": "arlecchino",
+  "arle": "arlecchino",
   "barbara": "barbara",
   "barb": "barbara",
   "beidou": "beidou",
@@ -146,4 +148,6 @@ CHARACTER_ALIASES = {
   "chev": "chevreuse",
   "gaming": "gaming",
   "chiori": "chiori",
+  "clorinde": "clorinde",
+  "emilie": "emilie",
 }
