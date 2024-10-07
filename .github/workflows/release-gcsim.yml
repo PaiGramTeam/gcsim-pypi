@@ -1,8 +1,6 @@
 name: Build gcsim and Release to PyPI
 
 on:
-  schedule:
-    - cron: "0 0 * * 0"
   release:
     types: [published]
   workflow_dispatch:
