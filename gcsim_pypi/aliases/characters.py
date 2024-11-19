@@ -150,4 +150,9 @@ CHARACTER_ALIASES = {
   "chiori": "chiori",
   "clorinde": "clorinde",
   "emilie": "emilie",
+  "mualani": "mualani",
+  "sethos": "sethos",
+  "xilonen": "xilonen",
+  "xilo": "xilonen",
+  "sigewinne": "sigewinne",
 }
