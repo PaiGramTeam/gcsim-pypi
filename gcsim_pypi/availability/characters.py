@@ -69,6 +69,7 @@ AVAILABLE_CHARACTERS = {
   "kazuha",
   "keq",
   "keqing",
+  "kinich",
   "kirara",
   "klee",
   "koko",
