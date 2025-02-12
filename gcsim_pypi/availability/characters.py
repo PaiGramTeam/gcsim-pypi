@@ -105,6 +105,8 @@ AVAILABLE_CHARACTERS = {
   "ning",
   "ningguang",
   "noelle",
+  "olorun",
+  "ororon",
   "qiqi",
   "raiden",
   "raidenshogun",

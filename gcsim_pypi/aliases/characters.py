@@ -156,4 +156,6 @@ CHARACTER_ALIASES = {
   "xilo": "xilonen",
   "sigewinne": "sigewinne",
   "kinich": "kinich",
+  "ororon": "ororon",
+  "olorun": "ororon",
 }
