@@ -155,7 +155,11 @@ CHARACTER_ALIASES = {
   "xilonen": "xilonen",
   "xilo": "xilonen",
   "sigewinne": "sigewinne",
+  "mavuika": "mavuika",
+  "mav": "mavuika",
   "kinich": "kinich",
   "ororon": "ororon",
   "olorun": "ororon",
+  "chasca": "chasca",
+  "lanyan": "lanyan",
 }
