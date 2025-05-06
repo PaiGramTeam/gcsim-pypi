@@ -54,6 +54,7 @@ AVAILABLE_ARTIFACTS = {
   "ins",
   "instructor",
   "lavawalker",
+  "longnightsoath",
   "luckydog",
   "lw",
   "maiden",

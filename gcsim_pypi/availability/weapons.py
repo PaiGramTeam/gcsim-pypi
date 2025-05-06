@@ -352,6 +352,8 @@ AVAILABLE_WEAPONS = {
   "verdict",
   "vhunt",
   "viridescenthunt",
+  "vivid",
+  "vividnotions",
   "vortex",
   "vortexvanquisher",
   "waltz",

@@ -351,6 +351,8 @@ WEAPON_ALIASES = {
   "misugiri": "urakumisugiri",
   "urakumisugiri": "urakumisugiri",
   "verdict": "verdict",
+  "vividnotions": "vividnotions",
+  "vivid": "vividnotions",
   "vortexvanquisher": "vortexvanquisher",
   "vortex": "vortexvanquisher",
   "wanderingevenstar": "wanderingevenstar",

@@ -56,6 +56,7 @@ ARTIFACT_ALIASES = {
   "ins": "instructor",
   "lavawalker": "lavawalker",
   "lw": "lavawalker",
+  "longnightsoath": "longnightsoath",
   "luckydog": "luckydog",
   "maidenbeloved": "maidenbeloved",
   "maiden": "maidenbeloved",
