@@ -162,4 +162,6 @@ CHARACTER_ALIASES = {
   "olorun": "ororon",
   "chasca": "chasca",
   "lanyan": "lanyan",
+  "citlali": "citlali",
+  "mizuki": "mizuki",
 }
