@@ -43,6 +43,8 @@ AVAILABLE_CHARACTERS = {
   "diona",
   "dori",
   "emilie",
+  "esco",
+  "escoffier",
   "eula",
   "faru",
   "faruzan",

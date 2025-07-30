@@ -255,6 +255,8 @@ WEAPON_ALIASES = {
   "seasoned": "seasonedhuntersbow",
   "serpentspine": "serpentspine",
   "serpent": "serpentspine",
+  "sequenceofsolitude": "sequenceofsolitude",
+  "solitude": "sequenceofsolitude",
   "sharpshootersoath": "sharpshootersoath",
   "sharpshooters": "sharpshootersoath",
   "sharpshooter": "sharpshootersoath",

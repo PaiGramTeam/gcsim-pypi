@@ -164,4 +164,6 @@ CHARACTER_ALIASES = {
   "lanyan": "lanyan",
   "citlali": "citlali",
   "mizuki": "mizuki",
+  "escoffier": "escoffier",
+  "esco": "escoffier",
 }
