@@ -24,6 +24,7 @@ AVAILABLE_WEAPONS = {
   "athousandfloatingdreams",
   "atlas",
   "avcp",
+  "azurelight",
   "ballad",
   "balladoftheboundlessblue",
   "balladofthefjords",

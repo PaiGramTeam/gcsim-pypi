@@ -74,6 +74,7 @@ CHARACTER_ALIASES = {
   "kokomi": "kokomi",
   "koko": "kokomi",
   "sayu": "sayu",
+  "skirk": "skirk",
   "sucrose": "sucrose",
   "tartaglia": "tartaglia",
   "childe": "tartaglia",
@@ -166,4 +167,5 @@ CHARACTER_ALIASES = {
   "mizuki": "mizuki",
   "escoffier": "escoffier",
   "esco": "escoffier",
+  "varesa": "varesa",
 }

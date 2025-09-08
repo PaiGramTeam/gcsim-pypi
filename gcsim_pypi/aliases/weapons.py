@@ -23,6 +23,7 @@ WEAPON_ALIASES = {
   "athousandfloatingdreams": "athousandfloatingdreams",
   "thousandfloatingdreams": "athousandfloatingdreams",
   "tfd": "athousandfloatingdreams",
+  "azurelight": "azurelight",
   "balladoftheboundlessblue": "balladoftheboundlessblue",
   "boundlessblue": "balladoftheboundlessblue",
   "balladofthefjords": "balladofthefjords",
