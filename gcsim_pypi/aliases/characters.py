@@ -33,6 +33,7 @@ CHARACTER_ALIASES = {
   "chongyun": "chongyun",
   "chong": "chongyun",
   "cyno": "cyno",
+  "dahlia": "dahlia",
   "diluc": "diluc",
   "diona": "diona",
   "eula": "eula",

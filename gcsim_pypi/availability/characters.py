@@ -37,6 +37,7 @@ AVAILABLE_CHARACTERS = {
   "cloudretainer",
   "collei",
   "cyno",
+  "dahlia",
   "dehya",
   "demoiselle",
   "diluc",
