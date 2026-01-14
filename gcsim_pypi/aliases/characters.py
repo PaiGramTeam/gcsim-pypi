@@ -169,4 +169,5 @@ CHARACTER_ALIASES = {
   "escoffier": "escoffier",
   "esco": "escoffier",
   "varesa": "varesa",
+  "ineffa": "ineffa",
 }
