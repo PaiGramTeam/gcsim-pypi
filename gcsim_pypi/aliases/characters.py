@@ -40,6 +40,7 @@ CHARACTER_ALIASES = {
   "fischl": "fischl",
   "fish": "fischl",
   "amy": "fischl",
+  "flins": "flins",
   "ganyu": "ganyu",
   "hutao": "hutao",
   "tao": "hutao",
@@ -169,5 +170,6 @@ CHARACTER_ALIASES = {
   "escoffier": "escoffier",
   "esco": "escoffier",
   "varesa": "varesa",
+  "lauma": "lauma",
   "ineffa": "ineffa",
 }
